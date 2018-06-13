@@ -1,5 +1,6 @@
 import shelve as sh
-from Library import db_helper
+from Library import db_helper as dh
+import os
 
 """
 	Библиотека методов для редактирования БД
@@ -9,15 +10,17 @@ from Library import db_helper
 
 def clear_db():
 	"""
-		Сбрасывает базу данных к первоначальному виду
+		Сбрасывает базу (db_path) данных к первоначальному виду
 		Параметры: нет
 		Автор:
 	"""
-	with sh.open(db_helper.db_path) as db:
-		for index in range(len(db_helper.cats)):
-			db[str(index)] = db_helper.from_ls_to_dict(db_helper.cats)[index]
-		db[db_helper.count_field] = len(db_helper.cats)
-
+	try:
+		os.remove('../Data/' + dh.db_name + '.bak')
+		os.remove('../Data/' + dh.db_name + '.dat')
+		os.remove('../Data/' + dh.db_name + '.dir')
+	except OSError:
+		pass
+	dh.create_db_from_dict(dh.from_ls_to_dict(dh.cats), dh.db_name)
 
 def edit_fields(id, new_values, db_path):
 	"""
@@ -41,7 +44,7 @@ def del_cat(id, db_path):
 	"""
 	db = sh.open(db_path)
 	del db[id]
-	db[db_helper.count_field] = int(db[db_helper.count_field]) - 1
+	#db[dh.last_id_field] = int(db[dh.last_id_field]) - 1
 	db.close()
 
 
@@ -52,6 +55,6 @@ def add_cat(cat, db_path):
 		Автор:
 	"""
 	db = sh.open(db_path)
-	db[str(db[db_helper.count_field])] = cat
-	db[db_helper.count_field] = int(db[db_helper.count_field]) + 1
+	db[str(db[dh.last_id_field])] = cat
+	db[dh.last_id_field] = str(int(db[dh.last_id_field]) + 1)
 	db.close()

@@ -38,8 +38,9 @@ cats = [["Лесная кошка", "Felis", 7, "Серо-коричневый",
 		["Мраморная кошка", "Pardofelis", 3, "Коричневый", "Азия"]]
 
 fields = ['name', 'genus', 'weight', 'colour', 'habitat']
-db_path = '../Data/data'
-count_field = 'count'
+db_name = 'data'
+db_path = '../Data/' + db_name
+last_id_field = 'last_id'
 
 
 def create_db_from_dict(cats, db_name):
@@ -53,7 +54,8 @@ def create_db_from_dict(cats, db_name):
 	for cat in cats:
 		db[str(index)] = cats[cat]
 		index += 1
-	db[count_field] = index
+	db[last_id_field] = index
+	print(str(index))
 	db.close()
 
 
@@ -69,7 +71,7 @@ def from_txt_to_db(file_path, db_name):
 	for line in file:
 		db[str(index)] = dict(zip(fields, line.rstrip('\n').split(' | ')[1:]))
 		index += 1
-	db[count_field] = str(index)
+	db[last_id_field] = str(index)
 	db.close()
 
 
@@ -121,12 +123,12 @@ def print_all_db(db_path):
 	"""
 	database = sh.open(db_path)
 	for item in database:
-		if item != count_field:
+		if item != last_id_field:
 			print('-' * 4 + item + '-' * 4)
 			for field in database[item]:
 				print(str(field) + ' : ' + str(database[item].get(field)))
 			print()
-	print("Cats count = " + str(database[count_field]))
+	print("Cats count = " + str(database[last_id_field]))
 	database.close()
 
 
@@ -159,7 +161,7 @@ def get_cats_by_weight(w1, w2, db_path):
 	matches = []
 	count = 0
 	for item in db:
-		if item != count_field:
+		if item != last_id_field:
 			# fields[2] - название поля, которое хранит вес кота
 			if w1 <= int(db[item][fields[2]]) <= w2:
 				matches.append(db[item])
@@ -178,7 +180,7 @@ def get_count(db_path):
 		Автор: Духнай Екатерина
 	"""
 	db = sh.open(db_path)
-	count = db[count_field]
+	count = len(db)
 	db.close()
 	return count
 
@@ -214,3 +216,6 @@ def sort(param, cats_list, reverse):
 # create_db_from_dict(from_ls_to_dict(cats), 'data')
 # print_all_db(db_path)
 # new_ls = sort(fields[1], get_cats_by_weight(4, 6, db_path), False)
+
+print(search('Африка', [fields[4], fields[3]], db_path))
+print(get_cats_by_weight(10, 100, db_path))

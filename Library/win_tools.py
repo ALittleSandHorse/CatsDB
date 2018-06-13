@@ -49,25 +49,33 @@ def fetch_add(entries, label, window):
 
 
 #???
-def fetch_change(key, entry, label):
+def fetch_change(entries, label, window):
     """
        		Меняет значение для ключа key у поля с указанным пользователем идентификатором
        		Устанавливает в label метку об успешном завершении действия
        		Параметры: tkinter.Entry entry, tkinter.Label label
        		Автор:
        """
-    id = entry.get()
-    print(id)
-    try:
-        dt.del_cat(id, dh.db_path)
-        label.configure(text=w.done, fg=w.done_col)
-    except KeyError:
-        label.configure(text=w.error, fg=w.error_col)
-    print(entry.__class__)
+    cat={}
+    b = 0
+    for en in entries:
+        if b == 0:
+            id = en[1].get()
+        else:
+            text = en[1].get()
+            if text !='':
+                en[1].delete(0, 'end')
+                cat[dh.fields[b-1]] = text
+        b += 1
+    for c in cat:
+        print(c, cat[c])
+    dt.edit_fields(id, cat, dh.db_path)
+    label.configure(text=w.done, fg=w.done_col)
+    window.destroy()
 
 
 
-def fetch_del(entry, label):
+def fetch_del(entry, label, window):
     """
        		Удаляет запись по указанному пользователем id
        		Устанавливает в label метку об успешном завершении действия
@@ -81,6 +89,7 @@ def fetch_del(entry, label):
         label.configure(text=w.done, fg=w.done_col)
     except KeyError:
         label.configure(text=w.error, fg=w.error_col)
+    window.destroy()
 
 
 def makeform(root, fields):
@@ -101,7 +110,7 @@ def makeform(root, fields):
     return entries
 
 
-def create_win(title, field, fun, ph_quit, ph_sumbit):
+def create_win(title, field, fun, ph_sumbit):
     """
            		Формирует окно с заголовком title и полями ввода для каждого элемента из field
            		и привязывает окно к определенному действию в зависимости от fun
@@ -118,8 +127,12 @@ def create_win(title, field, fun, ph_quit, ph_sumbit):
     #win.bind('<Button-1>', (lambda event, e=ents, l=l1: fetch_add(e, l)))
     #b2 = Button(win, image=ph_quit, command=win.destroy)
     #b2.pack(side=RIGHT, padx=5, pady=5)
-    b1 = Button(win, image=ph_sumbit,
+    if fun==w.add:
+        b1 = Button(win, image=ph_sumbit,
                 command=(lambda e=ents, l=l1, w=win: fetch_add(e, l, w)))
+    elif fun==w.change:
+        b1 = Button(win, image=ph_sumbit,
+                    command=(lambda e=ents, l=l1, w=win: fetch_change(e, l, w)))
     b1.pack(side=RIGHT, padx=5, pady=5)
 
 
@@ -145,16 +158,29 @@ def del_win(ph_quit, ph_sumbit):
     #b2 = Button(win, image=ph_quit, command=win.destroy)
     #b2.pack(side=RIGHT, padx=5, pady=5)
     b1 = Button(win, image=ph_sumbit,
-                command=(lambda e=ent, l=l1: fetch_del(e, l)))
+                command=(lambda e=ent, l=l1, w=win: fetch_del(e, l, w)))
     b1.pack(side=RIGHT, padx=5, pady=5)
 
-def select_win():
+def change_win(title, field, ph_sumbit):#не тот код
     """
-                  		Формирует окно для задания параметров выборки
-                  		Отображает кнопки с фонами ph_quit и ph_sumbit
+                  		Формирует окно для задания новых параметров
+                  		Отображает кнопки с фоном ph_sumbit
                   		Параметры: PIL.ImageTk.PhotoImage ph_quit, PIL.ImageTk.PhotoImage ph_sumbit
                   		Автор:
                   """
+    win = Toplevel()
+    win.wm_title(title)
+    win.configure(background=w.bg_col)
+    ents = makeform(win, field)
+    l1 = Label(win, text='', bg=w.bg_col)
+    l1.pack(side=LEFT, padx=5, pady=5)
+    # win.bind('<Button-1>', (lambda event, e=ents, l=l1: fetch_add(e, l)))
+    # b2 = Button(win, image=ph_quit, command=win.destroy)
+    # b2.pack(side=RIGHT, padx=5, pady=5)
+    b1 = Button(win, image=ph_sumbit,
+                command=(lambda e=ents, l=l1, w=win: fetch_add(e, l, w)))
+    b1.pack(side=RIGHT, padx=5, pady=5)
+
 
 
 def show_table(ph_quit):
@@ -173,7 +199,7 @@ def show_table(ph_quit):
         e = Label(win, bg=w.bg_col, text="  " + w.fields_n[i] + "  ")
         e.grid(row=0, column=i, sticky=NSEW)
     for key in dh.get_dict_from_db(dh.db_path):
-        if key != dh.count_field:
+        if key != dh.last_id_field:
             for j in range(w.COLUMNS):
                 if j == 0:
                     index += 1
@@ -189,7 +215,7 @@ def show_table(ph_quit):
     b2.grid(row=len(rows) + 15, column=w.COLUMNS - 1)
 
 
-def choose():
+def select_options():
     """
                         Создает окно для задания параметров выборки
                         Отображает кнопку с фоном ph_quit
@@ -199,7 +225,7 @@ def choose():
     print("kek")
 
 
-def selection(ph_quit):
+def select_result(ph_quit):
     """
                       	Выводит результаты выборки по критерию
                       	Отображает кнопку с фоном ph_quit
