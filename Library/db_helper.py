@@ -38,6 +38,7 @@ cats = [["Лесная кошка", "Felis", 7, "Серо-коричневый",
 		["Мраморная кошка", "Pardofelis", 3, "Коричневый", "Азия"]]
 
 fields = ['name', 'genus', 'weight', 'colour', 'habitat']
+stats_fields = ['Средний вес', 'Дисперсия', 'Количество']
 db_name = 'data'
 db_path = '../Data/' + db_name
 last_id_field = 'last_id'
@@ -197,6 +198,78 @@ def get_dict_from_db(db_path):
 	return dict
 
 
+def get_dispers(db_path):
+	"""
+		Вычисляет дисперсию веса кота
+		Параметры: str db_path
+		Возвращает: дисперсию веса кота (float)
+		Автор: Духнай Екатерина
+	"""
+	count = 0
+	sum = 0
+	sq = 0
+	db = sh.open(db_path)
+	for item in db:
+		if item != last_id_field:
+			w = db[item][fields[2]]
+			if str(w).isdigit():
+				sum += float(w)
+				sq = float(w) * float(w)
+			count += 1
+	average = get_average(db_path)
+	disp = (sq - 2 * sum * average + count * average * average) / (count - 1)
+	db.close()
+	return disp
+
+
+def get_average(db_path):
+	"""
+		Вычисляет средний вес котов
+		Параметры: str db_path
+		Возвращает: средний вес котов (float)
+		Автор: Магомедов Шамиль
+	"""
+	average = 0
+	count = 0
+	db = sh.open(db_path)
+	for item in db:
+		if item != last_id_field:
+			w = db[item][fields[2]]
+			if str(w).isdigit():
+				average += int(db[item][fields[2]])
+			count += 1
+	db.close()
+	average /= count
+	return average
+
+
+def get_statistics(db_path):
+	"""
+		Создает статистику из дисперсии, среднего значения
+		и общего количества котов
+		Параметры: str db_path
+		Возвращает: словарь статистики (dict)
+		Автор: Духнай Екатерина
+	"""
+	stats = {}
+	stats[stats_fields[0]] = get_average(db_path)
+	stats[stats_fields[1]] = get_dispers(db_path)
+	stats[stats_fields[2]] = get_count(db_path)
+	return stats
+
+
+def print_stats_to_txt(file_name, stats):
+	"""
+		Записывает словарь статистики в файл [file_name].txt
+		Параметры: str file_name, dict stats
+		Автор: Магомедов Шамиль
+	"""
+	file = open('../Output/' + file_name + '.txt', 'w')
+	for item in stats:
+		print("%s = %s" % (item, stats[item]), file=file)
+	file.close()
+
+
 def sort(param, cats_list, reverse):
 	"""
 		Сортирует котов (cats_list) по определенному параметру (param)
@@ -206,7 +279,6 @@ def sort(param, cats_list, reverse):
 	"""
 	return sorted(cats_list, key=lambda cat: cat[param], reverse=reverse)
 
-
 # create_db_from_dict(from_ls_to_dict(cats), 'data')
 # print_dict_to_txt('out', from_ls_to_dict(cats))
 # from_txt_to_db('../Output/out.txt', 'data')
@@ -214,6 +286,7 @@ def sort(param, cats_list, reverse):
 # print_all_db(db_path)
 # new_ls = sort(fields[1], get_cats_by_weight(4, 6, db_path), False)
 
-# вызови клеар дб и запусти этот скрипт, он должен два списка вывести
-print(search('Африка', [fields[4], fields[3]], db_path))
-print(get_cats_by_weight(10, 100, db_path))
+# print(search('Африка', [fields[4], fields[3]], db_path))
+# print(get_cats_by_weight(10, 100, db_path))
+# print(get_statistics(db_path))
+# print_stats_to_txt('stats', get_statistics(db_path))

@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="703b9d18-3b71-41de-a749-44008cb1e247" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Work.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Work.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Output/stats.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data.bak" beforeDir="false" afterPath="$PROJECT_DIR$/Data/data.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data.dat" beforeDir="false" afterPath="$PROJECT_DIR$/Data/data.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data.dir" beforeDir="false" afterPath="$PROJECT_DIR$/Data/data.dir" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/db_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Library/db_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/db_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/Library/db_tools.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/win_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/Library/win_tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/interface.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/mainwindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/win_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/win_constants.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +27,7 @@
       <file leaf-file-name="mainwindow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/mainwindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="773">
+            <state relative-caret-position="1102">
               <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -32,20 +39,11 @@
       <file leaf-file-name="win_tools.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Library/win_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6">
-              <caret line="118" column="14" lean-forward="true" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="14" />
+            <state relative-caret-position="241">
+              <caret line="260" column="8" selection-start-line="260" selection-start-column="8" selection-end-line="260" selection-end-column="8" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.dir" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data/data.dir">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -53,20 +51,17 @@
       <file leaf-file-name="db_tools.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Library/db_tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1045">
-              <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-177">
+              <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db_helper.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="db_helper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Library/db_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="216" column="69" selection-start-line="216" selection-start-column="69" selection-end-line="216" selection-end-column="69" />
+            <state relative-caret-position="5016">
+              <caret line="264" column="31" selection-start-line="264" selection-start-column="31" selection-end-line="264" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -74,8 +69,17 @@
       <file leaf-file-name="win_constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/win_constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+            <state relative-caret-position="450">
+              <caret line="86" column="44" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="out.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Output/out.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -111,11 +115,11 @@
         <option value="$PROJECT_DIR$/Scripts/characteristics.py" />
         <option value="$PROJECT_DIR$/Scripts/window_constants.py" />
         <option value="$PROJECT_DIR$/Scripts/script.py" />
-        <option value="$PROJECT_DIR$/Scripts/win_constants.py" />
-        <option value="$PROJECT_DIR$/Scripts/mainwindow.py" />
         <option value="$PROJECT_DIR$/Library/db_tools.py" />
-        <option value="$PROJECT_DIR$/Library/win_tools.py" />
+        <option value="$PROJECT_DIR$/Scripts/mainwindow.py" />
         <option value="$PROJECT_DIR$/Library/db_helper.py" />
+        <option value="$PROJECT_DIR$/Library/win_tools.py" />
+        <option value="$PROJECT_DIR$/Scripts/win_constants.py" />
       </list>
     </option>
   </component>
@@ -192,7 +196,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.DBlib">
+  <component name="RunManager" selected="Python.mainwindow">
     <configuration name="DBlib" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Work" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -292,8 +296,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.DBlib" />
         <item itemvalue="Python.mainwindow" />
+        <item itemvalue="Python.DBlib" />
         <item itemvalue="Python.script" />
         <item itemvalue="Python.db_tools" />
         <item itemvalue="Python.win_tools" />
@@ -311,6 +315,14 @@
       <option name="presentableId" value="Default" />
       <updated>1527339231199</updated>
     </task>
+    <task id="LOCAL-00001" summary="3 commit">
+      <created>1528918611557</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1528918611557</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -324,12 +336,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24739583" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24739583" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.525" side_tool="true" weight="0.18884121" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.475" visible="true" weight="0.35515022" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.475" visible="true" weight="0.35515022" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Python Console" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -348,48 +359,22 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="3 commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 commit" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Library/win_tools.py</url>
-          <line>60</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Library/win_tools.py</url>
-          <line>61</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Library/win_tools.py</url>
-          <line>63</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Library/win_tools.py</url>
-          <line>62</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Library/win_tools.py</url>
-          <line>64</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="29" />
+      <option name="time" value="30" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Data/data.dir">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Library/win_tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1995">
           <caret line="133" column="28" lean-forward="true" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="28" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -409,7 +394,7 @@
         <state relative-caret-position="2535">
           <caret line="172" column="17" lean-forward="true" selection-start-line="172" selection-start-column="17" selection-end-line="172" selection-end-column="17" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -578,28 +563,16 @@
     <entry file="file://$PROJECT_DIR$/Library/window.py" />
     <entry file="file://$USER_HOME$/anaconda3/envs/untitled/lib/python3.6/tkinter/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Data/data.db" />
-    <entry file="file://$PROJECT_DIR$/Output/out.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/data.db.dat" />
     <entry file="file://$PROJECT_DIR$/Data/data.db.bak" />
     <entry file="file://$PROJECT_DIR$/Data/data.db.dir" />
     <entry file="file://$PROJECT_DIR$/Graphics/btn_format.png" />
     <entry file="file://$PROJECT_DIR$/Scripts/characteristics.py" />
-    <entry file="file://$PROJECT_DIR$/Scripts/interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/untitled/lib/python3.6/dbm/dumb.py" />
-    <entry file="file://$PROJECT_DIR$/Scripts/script.py" />
     <entry file="file://$PROJECT_DIR$/Data/data.dat">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Output/stats.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Data/data.dir">
@@ -609,26 +582,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/win_constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Scripts/script.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Library/db_tools.py">
+    <entry file="file://$PROJECT_DIR$/Scripts/interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="773">
+        <state relative-caret-position="1102">
           <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -638,18 +604,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Library/win_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="118" column="14" lean-forward="true" selection-start-line="118" selection-start-column="14" selection-end-line="118" selection-end-column="14" />
+        <state relative-caret-position="241">
+          <caret line="260" column="8" selection-start-line="260" selection-start-column="8" selection-end-line="260" selection-end-column="8" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Library/db_tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-177">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Library/db_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="216" column="69" selection-start-line="216" selection-start-column="69" selection-end-line="216" selection-end-column="69" />
+        <state relative-caret-position="5016">
+          <caret line="264" column="31" selection-start-line="264" selection-start-column="31" selection-end-line="264" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/win_constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="86" column="44" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Output/out.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
         </state>
       </provider>
     </entry>

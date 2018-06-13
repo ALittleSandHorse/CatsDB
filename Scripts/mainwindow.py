@@ -62,12 +62,12 @@ bshow = Button(f, image=ph_show, command=(lambda k=ph_quit: wt.show_table(k)))
 bshow.pack(fill=X)
 
 badd = Button(f, image=ph_add,
-              command=(lambda t=w.add_info,n=w.add, f=w.fields,s=ph_sumbit: wt.create_win(t, f,n, s)))
+			  command=(lambda t=w.add_info, n=w.add, f=w.fields, s=ph_sumbit: wt.create_win(t, f, n, s)))
 badd.pack(fill=X)
 
 bchange = Button(f, image=ph_ch,
-                 command=(
-                     lambda t=w.change_info, f=w.fields2,n=w.change, s=ph_sumbit: wt.create_win(t, f, n, s)))
+				 command=(
+					 lambda t=w.change_info, f=w.fields2, n=w.change, s=ph_sumbit: wt.create_win(t, f, n, s)))
 bchange.pack(fill=X)
 
 bdel = Button(f, image=ph_del, command=(lambda q=ph_quit, s=ph_sumbit: wt.del_win(q, s)))
