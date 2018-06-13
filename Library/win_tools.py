@@ -112,12 +112,12 @@ def makeform(root, fields):
 
 def create_win(title, field, fun, ph_sumbit):
     """
-           		Формирует окно с заголовком title и полями ввода для каждого элемента из field
-           		и привязывает окно к определенному действию в зависимости от fun
-           		Отображает кнопки с фонами ph_quit и ph_sumbit
-           		Параметры: str title, tuple field, str fun, PIL.ImageTk.PhotoImage ph_quit, PIL.ImageTk.PhotoImage ph_sumbit
-           		Автор:
-           """
+        Формирует окно с заголовком title и полями ввода для каждого элемента из field
+        и привязывает окно к определенному действию в зависимости от fun
+        Отображает кнопки с фонами ph_quit и ph_sumbit
+        Параметры: str title, tuple field, str fun, PIL.ImageTk.PhotoImage ph_quit, PIL.ImageTk.PhotoImage ph_sumbit
+        Автор:
+    """
     win = Toplevel()
     win.wm_title(title)
     win.configure(background=w.bg_col)
@@ -138,12 +138,12 @@ def create_win(title, field, fun, ph_sumbit):
 
 def del_win(ph_quit, ph_sumbit):
     """
-              		Формирует окно с с полем ввода названия кота для удаления соответствующей
-              		записи из базы
-              		Отображает кнопки с фонами ph_quit и ph_sumbit
-              		Параметры: PIL.ImageTk.PhotoImage ph_quit, PIL.ImageTk.PhotoImage ph_sumbit
-              		Автор:
-              """
+        Формирует окно с с полем ввода названия кота для удаления соответствующей
+        записи из базы
+        Отображает кнопки с фонами ph_quit и ph_sumbit
+        Параметры: PIL.ImageTk.PhotoImage ph_quit, PIL.ImageTk.PhotoImage ph_sumbit
+        Автор:
+    """
     win = Toplevel()
     win.wm_title(w.title_del)
     win.configure(background=w.bg_col)

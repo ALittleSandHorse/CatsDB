@@ -159,15 +159,12 @@ def get_cats_by_weight(w1, w2, db_path):
 	"""
 	db = sh.open(db_path)
 	matches = []
-	count = 0
 	for item in db:
 		if item != last_id_field:
 			# fields[2] - название поля, которое хранит вес кота
-			if w1 <= int(db[item][fields[2]]) <= w2:
+			weight = db[item][fields[2]]
+			if str(weight).isdigit() and w1 <= weight <= w2:
 				matches.append(db[item])
-				count += 1
-	#	matches.append(count)
-	# тут кароч как нить куда нить надо будет запихнуть count, мб сделаю список из списка и int
 	db.close()
 	return matches
 
@@ -217,5 +214,6 @@ def sort(param, cats_list, reverse):
 # print_all_db(db_path)
 # new_ls = sort(fields[1], get_cats_by_weight(4, 6, db_path), False)
 
+# вызови клеар дб и запусти этот скрипт, он должен два списка вывести
 print(search('Африка', [fields[4], fields[3]], db_path))
 print(get_cats_by_weight(10, 100, db_path))
