@@ -1,83 +1,84 @@
 from tkinter import *
-from PIL import Image, ImageTk
-from Scripts import win_constants as w
-from Library import win_tools as wt
+import sys
+sys.path.insert(0, '../Library')
+import Library.win_tools as wt
+import Library.win_constants as w
+
 
 # создание главного окна
 root = Tk()
 root.configure(background=w.bg_col)
+root.wm_title(w.main_title)
 
 imgframe = Frame()
 imgframe.pack(side=TOP)
 
-image1 = Image.open(w.path_img)
-image1 = image1.resize((w.WIDTH, w.RESIZE_H400), Image.ANTIALIAS)
-
-photo1 = ImageTk.PhotoImage(image1)
-
-label1 = Label(imgframe, image=photo1, anchor=W)
-label1.image1 = photo1
-label1.pack()
-
 f = Frame()
 f.pack(side=TOP)
 
-img_btn_show = Image.open(w.path_show)
-img_btn_show = img_btn_show.resize((w.RESIZE_W200, w.RESIZE_HEIGHT), Image.ANTIALIAS)
-ph_show = ImageTk.PhotoImage(img_btn_show)
+#канва
+canvas = Canvas(f, width=w.WIDTH, height=w.HEIGHT, bg=w.bg_col)
+canvas.pack(expand=YES, fill=BOTH)
 
-img_btn_add = Image.open(w.path_add)
-img_btn_add = img_btn_add.resize((w.RESIZE_W200, w.RESIZE_HEIGHT), Image.ANTIALIAS)
-ph_add = ImageTk.PhotoImage(img_btn_add)
+#картинка для фона
+image = PhotoImage(file=w.path_img)
+canvas.create_image(0, 0, anchor=NW, image=image)
 
-img_btn_ch = Image.open(w.path_change)
-img_btn_ch = img_btn_ch.resize((w.RESIZE_W200, w.RESIZE_HEIGHT), Image.ANTIALIAS)
-ph_ch = ImageTk.PhotoImage(img_btn_ch)
+img_add = PhotoImage(file=w.path_add)
 
-img_btn_del = Image.open(w.path_del)
-img_btn_del = img_btn_del.resize((w.RESIZE_W200, w.RESIZE_HEIGHT), Image.ANTIALIAS)
-ph_del = ImageTk.PhotoImage(img_btn_del)
+img_show = PhotoImage(file=w.path_show)
 
-img_btn_form = Image.open(w.path_format)
-img_btn_form = img_btn_form.resize((w.RESIZE_W200, w.RESIZE_HEIGHT), Image.ANTIALIAS)
-ph_form = ImageTk.PhotoImage(img_btn_form)
+img_change = PhotoImage(file=w.path_change)
 
-img_btn_ok = Image.open(w.path_ok)
-img_btn_ok = img_btn_ok.resize((w.RESIZE_W50, w.RESIZE_H30), Image.ANTIALIAS)
-ph_ok = ImageTk.PhotoImage(img_btn_ok)
+img_del = PhotoImage(file=w.path_del)
 
-img_btn_sumbit = Image.open(w.path_sumbit)
-img_btn_sumbit = img_btn_sumbit.resize((w.RESIZE_W110, w.RESIZE_H30), Image.ANTIALIAS)
-ph_sumbit = ImageTk.PhotoImage(img_btn_sumbit)
+img_format = PhotoImage(file=w.path_format)
 
-img_btn_quit = Image.open(w.path_quit)
-img_btn_quit = img_btn_quit.resize((w.RESIZE_W110, w.RESIZE_H30), Image.ANTIALIAS)
-ph_quit = ImageTk.PhotoImage(img_btn_quit)
+img_ok = PhotoImage(file=w.path_ok)
 
-img_btn_select = Image.open(w.path_select)
-img_btn_select = img_btn_select.resize((w.RESIZE_W200, w.RESIZE_HEIGHT), Image.ANTIALIAS)
-ph_select = ImageTk.PhotoImage(img_btn_select)
+img_sumbit = PhotoImage(file=w.path_sumbit)
 
-bshow = Button(f, image=ph_show, command=(lambda k=ph_quit: wt.show_table(k)))
-bshow.pack(fill=X)
+img_quit = PhotoImage(file=w.path_quit)
 
-badd = Button(f, image=ph_add,
-			  command=(lambda t=w.add_info, n=w.add, f=w.fields, s=ph_sumbit: wt.create_win(t, f, n, s)))
-badd.pack(fill=X)
+img_select = PhotoImage(file=w.path_select)
 
-bchange = Button(f, image=ph_ch,
-				 command=(
-					 lambda t=w.change_info, f=w.fields2, n=w.change, s=ph_sumbit: wt.create_win(t, f, n, s)))
-bchange.pack(fill=X)
+# TODO add button save
+img_save = PhotoImage(file=w.path_select)
 
-bdel = Button(f, image=ph_del, command=(lambda q=ph_quit, s=ph_sumbit: wt.del_win(q, s)))
-bdel.pack(fill=X)
 
-bform = Button(f, image=ph_form, command=(lambda k=ph_ok: wt.format_db(k)))
-bform.pack(fill=X)
+bshow = Button(f, image=img_show, command=(lambda k=img_quit: wt.show_table(k)))
+bshow.pack()
+canvas.create_window((20, 230), anchor="nw", window=bshow)
 
-bselect = Button(f, image=ph_select, command=(lambda k=ph_ok: wt.format_db(k)))
-bselect.pack(fill=X)
+
+badd = Button(f, image=img_add,command=(lambda t=w.add_info, n=w.add, f=w.fields, s=img_sumbit: wt.create_win(t, f, n, s)))
+badd.pack()
+canvas.create_window((20, 280), anchor="nw", window=badd)
+
+
+bchange = Button(f, image=img_change,command=(lambda t=w.change_info, f=w.fields2, n=w.change, s=img_sumbit: wt.create_win(t, f, n, s)))
+bchange.pack()
+canvas.create_window((20, 330), anchor="nw", window=bchange)
+
+
+bdel = Button(f, image=img_del, command=(lambda s=img_sumbit: wt.del_win(s)))
+bdel.pack()
+canvas.create_window((20, 380), anchor="nw", window=bdel)
+
+
+bform = Button(f, image=img_format, command=(lambda k=img_ok: wt.format_db(k)))
+bform.pack()
+canvas.create_window((20, 430), anchor="nw", window=bform)
+
+
+bselect = Button(f, image=img_select, command=(lambda s=img_sumbit, q=img_quit: wt.select_options(s,q)))
+bselect.pack()
+canvas.create_window((20, 480), anchor="nw", window=bselect)
+
+bstats = Button(f, image=img_select, command=(lambda s=img_save, q=img_quit: wt.stats_win(s,q)))
+bstats.pack()
+canvas.create_window((20, 530), anchor="nw", window=bstats)
+
 
 root.minsize(width=w.WIDTH, height=w.HEIGHT)
 root.maxsize(width=w.WIDTH, height=w.HEIGHT)

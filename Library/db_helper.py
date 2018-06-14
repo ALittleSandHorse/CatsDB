@@ -143,10 +143,11 @@ def search(request, fields, db_path):
 	db = sh.open(db_path)
 	matches = []
 	for key in db:
-		for field in db[key]:
-			if field in fields and key not in matches:
-				if db[key].get(field).lower().find(request.lower()) != -1:
-					matches.append(db[key])
+		if key != last_id_field:
+			for field in db[key]:
+				if field in fields and key not in matches:
+					if db[key].get(field).lower().find(request.lower()) != -1:
+						matches.append(db[key])
 	db.close()
 	return matches
 
@@ -278,6 +279,20 @@ def sort(param, cats_list, reverse):
 		Автор: Магомедов Шамиль
 	"""
 	return sorted(cats_list, key=lambda cat: cat[param], reverse=reverse)
+
+def list_to_dict(lis):
+	"""
+			Бла-бла-бла
+			Параметры: list lis
+			Возвращает: отсортированный список котов(list)
+			Автор: Магомедов Шамиль
+		"""
+	dic = {}
+	index = 0
+	for k in lis:
+		dic[str(index)] = k
+	index += 1
+	return dic
 
 # create_db_from_dict(from_ls_to_dict(cats), 'data')
 # print_dict_to_txt('out', from_ls_to_dict(cats))

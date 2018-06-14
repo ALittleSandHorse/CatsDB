@@ -6,6 +6,8 @@ fields2 = ('Идентификатор', 'Название', 'Род', 'Масс
 
 f_name = ('Название кота')
 
+main_title="База данных лучших котиков"
+
 add = "add"
 
 change = "change"
@@ -28,6 +30,22 @@ bg_table = "#A58888"
 
 title_del = "Удалить существующую запись"
 
+title_select="Выборка"
+
+select="Сделать выборку:"
+
+sel_weight="По массе"
+
+sel_keyword="По ключевому слову"
+
+in_category="В категории (для поиска по слову):"
+
+weight_range="Диапазон масс:"
+
+w_from="От "
+
+w_to=" до"
+
 title_curr = "Текущая таблица"
 
 title_form = "Возврат к первоначальному состоянию"
@@ -38,33 +56,41 @@ ident = "Идентификатор"
 
 done_form = "Форматирование завершено"
 
-path_img = "../Graphics/Abyssinian_578.jpg"
+path_img = "../Graphics/Abyssinian_578.gif"
 
-path_show = "../Graphics/btn_show.jpg"
+path_show = "../Graphics/btn_show.gif"
 
-path_add = "../Graphics/btn_add.jpg"
+path_add = "../Graphics/btn_add.gif"
 
-path_change = "../Graphics/btn_change.jpg"
+path_change = "../Graphics/btn_change.gif"
 
-path_del = "../Graphics/btn_del.jpg"
+path_del = "../Graphics/btn_del.gif"
 
-path_format = "../Graphics/btn_format.jpg"
+path_format = "../Graphics/btn_format.gif"
 
-path_ok = "../Graphics/btn_ok.jpg"
+path_ok = "../Graphics/btn_ok.gif"
 
-path_sumbit = "../Graphics/btn_sumbit.jpg"
+path_sumbit = "../Graphics/btn_sumbit.gif"
 
-path_quit = "../Graphics/btn_quit.jpg"
+path_quit = "../Graphics/btn_quit.gif"
 
-path_select = "../Graphics/btn_select.jpg"
+path_select = "../Graphics/btn_select.gif"
 
 add_info = "Добавьте информацию о новом коте"
 
 change_info = "Изменить существующую информацию"
 
-WIDTH = 650
+no_fill="Заполнены не все поля"
 
-HEIGHT = 675
+disp="Дисперсия массы котов: "
+
+sel_results="Результаты выборки"
+
+stats="Статистика"
+
+WIDTH = 960
+
+HEIGHT = 600
 
 RESIZE_W200 = 200
 
@@ -78,10 +104,18 @@ RESIZE_H30 = 30
 
 RESIZE_H400 = 400
 
+W10=10
+
 COLUMNS = 7
 
 BTN_COL = 5
 
 WIDTH30 = 30
+
+PAD_X5=5
+
+PAD_Y=10
+
+PAD_X20=15
 
 #TODO: change all path to 'os.get_path()...'
