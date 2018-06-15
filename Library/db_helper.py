@@ -197,7 +197,7 @@ def search(request, fields, db_path):
 def get_cats_by_weight(w1, w2, db_path):
 	"""
 		Возвращает список котов удовлетворяющих условию: w1<= вес <=w2
-		Параметры: int w1, int w2, str db_path
+		Параметры: float w1, float w2, str db_path
 		Возвращаемое значение: список котов (list) matches
 		Автор: Магомедов Шамиль
 	"""
