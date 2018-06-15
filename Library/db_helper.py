@@ -1,4 +1,6 @@
+import math as m
 import shelve as sh
+from os.path import dirname, abspath
 
 """
 	Библиотека методов для работы с даннами из БД
@@ -39,9 +41,13 @@ cats = [["Лесная кошка", "Felis", 7, "Серо-коричневый",
 
 fields = ['name', 'genus', 'weight', 'colour', 'habitat']
 stats_fields = ['Средний вес', 'Дисперсия', 'Количество']
-db_name = 'data'
-db_path = '../Data/' + db_name
 last_id_field = 'last_id'
+
+workspace = dirname(dirname(abspath(__file__)))
+db_name = 'data'
+data_folder = workspace + '/Data/'
+output_folder = workspace + '/Output/'
+db_path = data_folder + db_name
 
 
 def create_db_from_dict(cats, db_name):
@@ -50,7 +56,7 @@ def create_db_from_dict(cats, db_name):
 		Параметры: dict cats, str db_name
 		Автор: Магомедов Шамиль
 	"""
-	db = sh.open('../Data/' + db_name)
+	db = sh.open(data_folder + db_name)
 	index = 0
 	for cat in cats:
 		db[str(index)] = cats[cat]
@@ -67,7 +73,7 @@ def from_txt_to_db(file_path, db_name):
 		Автор: Духнай Екатерина
 	"""
 	file = open(file_path, 'r')
-	db = sh.open('../Data/' + db_name)
+	db = sh.open(data_folder + db_name)
 	index = 0
 	for line in file:
 		db[str(index)] = dict(zip(fields, line.rstrip('\n').split(' | ')[1:]))
@@ -76,10 +82,10 @@ def from_txt_to_db(file_path, db_name):
 	db.close()
 
 
-def from_ls_to_dict(cats_list):
+def from_ls_ls_to_dict(cats_list):
 	"""
-		Преобразовывает список котов в словарь котов
-		Параметры: list cats_arr
+		Преобразовывает список списков (котов) в словарь котов
+		Параметры: list cats_list
 		Автор: Магомедов Шамиль
 	"""
 	cats_dict = {}
@@ -88,13 +94,40 @@ def from_ls_to_dict(cats_list):
 	return cats_dict
 
 
+def from_ls_dict_to_dict(cats_list):
+	"""
+		Преобразовывает список словарей (котов) в словарь котов
+		Параметры: list cats_list
+		Автор: Магомедов Шамиль
+	"""
+	cats = {}
+	index = 0
+	for cat in cats_list:
+		cats[str(index)] = cat
+		index += 1
+	return cats
+
+
+def from_dict_to_ls(cats_dic):
+	"""
+			Преобразовывает список словарей (котов) в словарь котов
+			Параметры: dict cats_list
+			Автор: Магомедов Шамиль
+	"""
+	cats = []
+	for cat in cats_dic:
+		if cat != last_id_field:
+			cats.append(cats_dic[cat])
+	return cats
+
+
 def print_dict_to_txt(file_name, cats_dict):
 	"""
 		Записыввает словарь котов в файл [file_name].txt
 		Параметры: str file_name, dict cats_dict
 		Автор: Духнай Екатерина
 	"""
-	file = open('../Output/' + file_name + '.txt', 'w')
+	file = open(output_folder + file_name + '.txt', 'w')
 	for index in cats_dict:
 		print("%d" % index, end='', file=file)
 		for key in fields:
@@ -146,7 +179,7 @@ def search(request, fields, db_path):
 		if key != last_id_field:
 			for field in db[key]:
 				if field in fields and key not in matches:
-					if db[key].get(field).lower().find(request.lower()) != -1:
+					if str(db[key].get(field)).lower().find(request.lower()) != -1:
 						matches.append(db[key])
 	db.close()
 	return matches
@@ -199,26 +232,26 @@ def get_dict_from_db(db_path):
 	return dict
 
 
-def get_dispers(db_path):
+def get_dispersion(db_path):
 	"""
-		Вычисляет дисперсию веса кота
+		Вычисляет дисперсию массы кота
 		Параметры: str db_path
 		Возвращает: дисперсию веса кота (float)
 		Автор: Духнай Екатерина
 	"""
-	count = 0
-	sum = 0
-	sq = 0
 	db = sh.open(db_path)
+	disp = 0
+	mid = 0
+	count = 0
 	for item in db:
 		if item != last_id_field:
-			w = db[item][fields[2]]
-			if str(w).isdigit():
-				sum += float(w)
-				sq = float(w) * float(w)
-			count += 1
-	average = get_average(db_path)
-	disp = (sq - 2 * sum * average + count * average * average) / (count - 1)
+			mid = mid + int(db[item][fields[2]])
+			count = count + 1
+	mid = mid / count
+	for item in db:
+		if item != last_id_field:
+			disp = disp + m.pow((mid - db[item][fields[2]]), 2)
+			disp = disp / count
 	db.close()
 	return disp
 
@@ -254,7 +287,7 @@ def get_statistics(db_path):
 	"""
 	stats = {}
 	stats[stats_fields[0]] = get_average(db_path)
-	stats[stats_fields[1]] = get_dispers(db_path)
+	stats[stats_fields[1]] = get_dispersion(db_path)
 	stats[stats_fields[2]] = get_count(db_path)
 	return stats
 
@@ -265,7 +298,7 @@ def print_stats_to_txt(file_name, stats):
 		Параметры: str file_name, dict stats
 		Автор: Магомедов Шамиль
 	"""
-	file = open('../Output/' + file_name + '.txt', 'w')
+	file = open(output_folder + file_name + '.txt', 'w')
 	for item in stats:
 		print("%s = %s" % (item, stats[item]), file=file)
 	file.close()
@@ -280,19 +313,6 @@ def sort(param, cats_list, reverse):
 	"""
 	return sorted(cats_list, key=lambda cat: cat[param], reverse=reverse)
 
-def list_to_dict(lis):
-	"""
-			Бла-бла-бла
-			Параметры: list lis
-			Возвращает: отсортированный список котов(list)
-			Автор: Магомедов Шамиль
-		"""
-	dic = {}
-	index = 0
-	for k in lis:
-		dic[str(index)] = k
-	index += 1
-	return dic
 
 # create_db_from_dict(from_ls_to_dict(cats), 'data')
 # print_dict_to_txt('out', from_ls_to_dict(cats))
@@ -305,3 +325,7 @@ def list_to_dict(lis):
 # print(get_cats_by_weight(10, 100, db_path))
 # print(get_statistics(db_path))
 # print_stats_to_txt('stats', get_statistics(db_path))
+
+# print(from_ls_dict_to_dict(search('Африка', [fields[4], fields[3]], db_path)))
+
+print(sort(fields[0], from_dict_to_ls(get_dict_from_db(db_path)), False))

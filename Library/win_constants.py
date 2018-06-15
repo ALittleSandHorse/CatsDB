@@ -56,25 +56,25 @@ ident = "Идентификатор"
 
 done_form = "Форматирование завершено"
 
-path_img = "../Graphics/Abyssinian_578.gif"
+path_img = "/Graphics/Abyssinian_578.gif"
 
-path_show = "../Graphics/btn_show.gif"
+path_show = "/Graphics/btn_show.gif"
 
-path_add = "../Graphics/btn_add.gif"
+path_add = "/Graphics/btn_add.gif"
 
-path_change = "../Graphics/btn_change.gif"
+path_change = "/Graphics/btn_change.gif"
 
-path_del = "../Graphics/btn_del.gif"
+path_del = "/Graphics/btn_del.gif"
 
-path_format = "../Graphics/btn_format.gif"
+path_format = "/Graphics/btn_format.gif"
 
-path_ok = "../Graphics/btn_ok.gif"
+path_ok = "/Graphics/btn_ok.gif"
 
-path_sumbit = "../Graphics/btn_sumbit.gif"
+path_sumbit = "/Graphics/btn_sumbit.gif"
 
-path_quit = "../Graphics/btn_quit.gif"
+path_quit = "/Graphics/btn_quit.gif"
 
-path_select = "../Graphics/btn_select.gif"
+path_select = "/Graphics/btn_select.gif"
 
 add_info = "Добавьте информацию о новом коте"
 
