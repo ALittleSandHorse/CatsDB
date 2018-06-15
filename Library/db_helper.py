@@ -196,7 +196,7 @@ def search(request, fields, db_path):
 
 def get_cats_by_weight(w1, w2, db_path):
 	"""
-		Возвращает список котов удовлетворяющих условию: вес
+		Возвращает список котов удовлетворяющих условию: w1<= вес <=w2
 		Параметры: int w1, int w2, str db_path
 		Возвращаемое значение: список котов (list) matches
 		Автор: Магомедов Шамиль
@@ -206,7 +206,7 @@ def get_cats_by_weight(w1, w2, db_path):
 	for item in db:
 		if item != last_id_field:
 			weight = db[item][fields[2]]
-			if str(weight).isdigit() and w1 <= weight <= w2:
+			if isFloat(str(weight)) and w1 <= weight <= w2:
 				matches.append(db[item])
 	db.close()
 	return matches
@@ -321,3 +321,18 @@ def sort(param, cats_list, reverse):
 		Автор: Магомедов Шамиль
 	"""
 	return sorted(cats_list, key=lambda cat: cat[param], reverse=reverse)
+
+def isFloat(text):
+    """
+            Проверяет, является ли text float
+            Параметры: str text
+            Возвращаемое значение: Boolean True или Boolean False
+            Автор:Духнай Екатерина
+        """
+    try:
+        text = text.replace(",", ".")
+        if isinstance(float(text), float) == False or float(text) <= 0:
+            return False
+    except ValueError:
+        return False
+    return True

@@ -30,13 +30,8 @@ def fetch_add(entries, label, window):
             f = -1
         else:
             if count==2:
-                try:
-                    text=text.replace(",",".")
-                    if isinstance(float(text), float) == False or float(text)<=0:
-                        w1=-1
-                        entry[1].delete(0, 'end')
-                except ValueError:
-                    w1=-1
+                if dh.isFloat(text)==False:
+                    w1 = -1
                     entry[1].delete(0, 'end')
             cat[field] = text
             i += 1
@@ -82,13 +77,8 @@ def fetch_change(entries, label, window):
             text = en[1].get()
             if text != w.empty_str:
                 if b== 3:
-                    try:
-                        text = text.replace(",", ".")
-                        if isinstance(float(text), float) == False or float(text) <= 0:
-                            fw = -1
-                            en[1].delete(0, 'end')
-                    except ValueError:
-                        fw = -1
+                    if dh.isFloat(text)==False:
+                        fw=-1
                         en[1].delete(0, 'end')
                 cat[dh.fields[b - 1]] = text
             else:
@@ -122,6 +112,7 @@ def fetch_del(entry, label, window):
         label.configure(text=w.no_ident, fg=w.error_col)
     elif id.isdigit() == False or int(id) <= 0:
         label.configure(text=w.error_id, fg=w.error_col)
+        entry.delete(0, 'end')
     else:
         try:
             dt.del_cat(id, dh.db_path)
@@ -325,10 +316,14 @@ def select_result(radioVar, w_from, w_to, str, check_list, ph_quit,lab,win):
     elif radioVar.get() == 2:
         if w_from.get()==w.empty_str or w_to.get()==w.empty_str:
             lab.configure(text=w.error_from_to, fg=w.error_col)
-        elif  w_from.get().isdigit() == False or int(w_from.get())<=0 or w_to.get().isdigit() == False or int(w_to.get())<=0 or w_from.get()>w_to.get():
+        elif  dh.isFloat(w_from.get())==False or dh.isFloat(w_to.get())==False or w_from.get()>w_to.get():
             lab.configure(text=w.error_wrong_d, fg=w.error_col)
         else:
-            cats = dh.get_cats_by_weight(int(w_from.get()), int(w_to.get()), dh.db_path)
+            text = w_from.get().replace(",", ".")
+            wf=float(text)
+            text= w_to.get().replace(",", ".")
+            wt=float(text)
+            cats = dh.get_cats_by_weight(wf, wt, dh.db_path)
             cats_dict = dh.from_ls_dict_to_dict(cats)
             show_table(ph_quit, cats_dict)
             win.destroy()
@@ -340,7 +335,9 @@ def select_result(radioVar, w_from, w_to, str, check_list, ph_quit,lab,win):
                 flds.append(dh.fields_wo_weight[i])
                 count+=1
                 print(dh.fields_wo_weight[i])
-        if count==4:
+        if str.get()==w.empty_str:
+            lab.configure(text=w.no_keyword, fg=w.error_col)
+        elif count==0:
             lab.configure(text=w.error_choose, fg=w.error_col)
         else:
             cats = dh.search(str.get(), flds, dh.db_path)
@@ -398,13 +395,13 @@ def stats_win(ph_save, ph_sumbit, ph_quit):
 
 def ask_filename(ph_sumbit, win_root):
     """
-        		Показывает окно с полем ввода названия файла,
-        		    куда будут записаны результаты работы
-        		Отображает кнопку с фоном  ph_sumbit
-        		Параметры: PhotoImage  ph_sumbit, tkinter.Toplevel win_root
-        		Возвращаемое значение: -
-        		Автор:Магомедов Шамиль
-        	"""
+        	Показывает окно с полем ввода названия файла,
+        		   куда будут записаны результаты работы
+        	Отображает кнопку с фоном  ph_sumbit
+        	Параметры: PhotoImage  ph_sumbit, tkinter.Toplevel win_root
+        	Возвращаемое значение: -
+        	Автор:Магомедов Шамиль
+        """
     win = Toplevel()
     win.wm_title(w.title_del)
     win.configure(background=w.bg_col)
@@ -420,14 +417,15 @@ def ask_filename(ph_sumbit, win_root):
 
 def save_stats(ent, win, wr):
     """
-            		Сохраняет результаты работы в файл, имя которого
-            		    задал пользователь в ent
-            		Закрывает текущее окно со статистикой win и окно ввода названия файла wr
-            		Параметры: tkinter.Entry ent, tkinter.Toplevel win, tkinter.Toplevel wr
-            		Возвращаемое значение: -
-            		Автор:Духнай Екатерина
-            	"""
+            Сохраняет результаты работы в файл, имя которого
+            	  задал пользователь в ent
+            Закрывает текущее окно со статистикой win и окно ввода названия файла wr
+            Параметры: tkinter.Entry ent, tkinter.Toplevel win, tkinter.Toplevel wr
+            Возвращаемое значение: -
+            Автор:Духнай Екатерина
+         """
     s=ent.get()
     dh.print_stats_to_txt(s, dh.get_statistics(dh.db_path))
     win.destroy()
     wr.destroy()
+

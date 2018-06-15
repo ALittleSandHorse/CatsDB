@@ -89,7 +89,4 @@ canvas.create_window((w.X_MARG, w.Y_7), anchor="nw", window=bstats)
 root.minsize(width=w.WIDTH, height=w.HEIGHT)
 root.maxsize(width=w.WIDTH, height=w.HEIGHT)
 
-a=Entry()
-print(a.__class__)
-
 root.mainloop()

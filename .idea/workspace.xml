@@ -2,15 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="703b9d18-3b71-41de-a749-44008cb1e247" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Work.iml" afterPath="$PROJECT_DIR$/.idea/Work.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Graphics/Abyssinian_578.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_add.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_change.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_del.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_format.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_ok.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/Graphics/btn_quit.gif" afterPath="$PROJECT_DIR$/Graphics/btn_quit.gif" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_quit.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_save.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_select.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_show.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_stats.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_sumbit.gif" afterPath="$PROJECT_DIR$/Graphics/btn_sumbit.gif" />
+      <change beforePath="$PROJECT_DIR$/Graphics/btn_sumbit.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/Library/db_helper.py" afterPath="$PROJECT_DIR$/Library/db_helper.py" />
-      <change beforePath="$PROJECT_DIR$/Library/db_tools.py" afterPath="$PROJECT_DIR$/Library/db_tools.py" />
       <change beforePath="$PROJECT_DIR$/Library/win_constants.py" afterPath="$PROJECT_DIR$/Library/win_constants.py" />
       <change beforePath="$PROJECT_DIR$/Library/win_tools.py" afterPath="$PROJECT_DIR$/Library/win_tools.py" />
-      <change beforePath="$PROJECT_DIR$/Output/stats.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/Scripts/mainwindow.py" afterPath="$PROJECT_DIR$/Scripts/mainwindow.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +30,52 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="win_tools.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Library/win_tools.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1950">
+              <caret line="322" column="26" lean-forward="true" selection-start-line="322" selection-start-column="26" selection-end-line="322" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db_helper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Library/db_helper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="332" column="37" lean-forward="true" selection-start-line="332" selection-start-column="8" selection-end-line="332" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="win_constants.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Library/win_constants.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="117" column="34" lean-forward="false" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainwindow.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/mainwindow.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1335">
+              <caret line="89" column="44" lean-forward="false" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,9 +108,9 @@
         <option value="$PROJECT_DIR$/Scripts/script.py" />
         <option value="$PROJECT_DIR$/Library/EmptyException.py" />
         <option value="$PROJECT_DIR$/Scripts/win_constants.py" />
-        <option value="$PROJECT_DIR$/Library/db_helper.py" />
         <option value="$PROJECT_DIR$/Library/db_tools.py" />
         <option value="$PROJECT_DIR$/Scripts/mainwindow.py" />
+        <option value="$PROJECT_DIR$/Library/db_helper.py" />
         <option value="$PROJECT_DIR$/Library/win_tools.py" />
         <option value="$PROJECT_DIR$/Library/win_constants.py" />
       </list>
@@ -94,11 +148,6 @@
             <path>
               <item name="Work" type="b2602c69:ProjectViewProjectNode" />
               <item name="Work" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Work" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Work" type="462c0819:PsiDirectoryNode" />
-              <item name="Data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Work" type="b2602c69:ProjectViewProjectNode" />
@@ -281,19 +330,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1922" height="1053" extended-state="6" />
+    <frame x="11" y="4" width="1922" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26680672" sideWeight="0.5432742" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32878152" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2657563" sideWeight="0.45672575" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2657563" sideWeight="0.45672575" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18172269" sideWeight="0.4875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18172269" sideWeight="0.4875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -466,13 +516,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Library/window.py" />
     <entry file="file://$PROJECT_DIR$/Data/data.db" />
-    <entry file="file://$PROJECT_DIR$/Output/out.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="57" lean-forward="false" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/data.db.dat" />
     <entry file="file://$PROJECT_DIR$/Data/data.db.bak" />
     <entry file="file://$PROJECT_DIR$/Data/data.db.dir" />
@@ -511,65 +554,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/__init__.py" />
     <entry file="file://$PROJECT_DIR$/Library/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Output/stats.txt">
+    <entry file="file://$PROJECT_DIR$/Output/stats.txt" />
+    <entry file="file://$PROJECT_DIR$/Output/kek.txt" />
+    <entry file="file://$PROJECT_DIR$/Library/db_tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Output/kek.txt">
+    <entry file="file://$PROJECT_DIR$/Output/out.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="435">
+          <caret line="29" column="57" lean-forward="false" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+        <state relative-caret-position="1335">
+          <caret line="89" column="44" lean-forward="false" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Library/win_constants.py">
+    <entry file="file://$PROJECT_DIR$/Library/db_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="75" lean-forward="false" selection-start-line="1" selection-start-column="75" selection-end-line="1" selection-end-column="75" />
+        <state relative-caret-position="481">
+          <caret line="332" column="37" lean-forward="true" selection-start-line="332" selection-start-column="8" selection-end-line="332" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Library/db_tools.py">
+    <entry file="file://$PROJECT_DIR$/Library/win_constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="495">
+          <caret line="117" column="34" lean-forward="false" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Library/win_tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5775">
-          <caret line="385" column="52" lean-forward="false" selection-start-line="385" selection-start-column="52" selection-end-line="385" selection-end-column="52" />
+        <state relative-caret-position="1950">
+          <caret line="322" column="26" lean-forward="true" selection-start-line="322" selection-start-column="26" selection-end-line="322" selection-end-column="26" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Library/db_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4665">
-          <caret line="319" column="29" lean-forward="false" selection-start-line="319" selection-start-column="29" selection-end-line="319" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
