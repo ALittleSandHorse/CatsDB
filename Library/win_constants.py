@@ -1,3 +1,8 @@
+"""
+	Строковые и числовые константы, использующиеся в графическом интерфейсе
+	Автор: Магомедов Шамиль и Духнай Екатерина
+"""
+
 fields = ('Название', 'Род', 'Масса', 'Цвет', 'Среда обитания')
 
 fields_n = ('№', 'Идентификатор', 'Название', 'Род', 'Масса', 'Цвет', 'Среда обитания')
@@ -9,6 +14,10 @@ f_name = ('Название кота')
 main_title="База данных лучших котиков"
 
 add = "add"
+
+empty_str=""
+
+float_format="%.2f"
 
 change = "change"
 
@@ -41,6 +50,10 @@ sel_keyword="По ключевому слову"
 in_category="В категории (для поиска по слову):"
 
 weight_range="Диапазон масс:"
+
+cats_count="Количество котов: "
+
+mid_weight="Средняя масса кота: "
 
 w_from="От "
 
@@ -76,6 +89,10 @@ path_quit = "/Graphics/btn_quit.gif"
 
 path_select = "/Graphics/btn_select.gif"
 
+path_stats = "/Graphics/btn_stats.gif"
+
+path_save = "/Graphics/btn_save.gif"
+
 add_info = "Добавьте информацию о новом коте"
 
 change_info = "Изменить существующую информацию"
@@ -84,7 +101,27 @@ no_fill="Заполнены не все поля"
 
 disp="Дисперсия массы котов: "
 
+no_ident="Нет идентификатора"
+
+error_criterion="Выберите критерий"
+
+error_choose="Выберите категорию(и)"
+
+error_from_to="Введите диапазон"
+
+error_wrong_d="Неверный диапазон"
+
+choose_filename="Имя нового файла:"
+
+no_edit_fields="Впишите, что нужно менять"
+
+error_weight="Масса - число >0"
+
+error_id="Идентификатор - целое число >0"
+
 sel_results="Результаты выборки"
+
+empty_sel="Выборка пуста"
 
 stats="Статистика"
 
@@ -116,6 +153,28 @@ PAD_X5=5
 
 PAD_Y=10
 
-PAD_X20=15
+PAD_X15=15
+
+X_MARG=20
+
+ZERO=0
+
+Y_1=240
+
+Y_2=290
+
+Y_3=340
+
+Y_4=390
+
+Y_5=440
+
+Y_6=490
+
+Y_7=540
+
+FONT_SIZE=10
+
+FONT_SIZE_LARGE=12
 
 #TODO: change all path to 'os.get_path()...'

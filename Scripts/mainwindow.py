@@ -2,6 +2,11 @@ from os.path import dirname, abspath
 from tkinter import *
 import sys
 
+"""
+	Скрипт для инициализации графического интерфейса
+	Автор: Магомедов Шамиль и Духнай Екатерина
+"""
+
 scripts_folder = dirname(abspath(__file__))
 workspace = dirname(scripts_folder)
 sys.path.insert(0, workspace)
@@ -27,7 +32,7 @@ canvas.pack(expand=YES, fill=BOTH)
 
 # картинка для фона
 image = PhotoImage(file=workspace + w.path_img)
-canvas.create_image(0, 0, anchor=NW, image=image)
+canvas.create_image(w.ZERO, w.ZERO, anchor=NW, image=image)
 
 img_add = PhotoImage(file=workspace + w.path_add)
 
@@ -47,59 +52,44 @@ img_quit = PhotoImage(file=workspace + w.path_quit)
 
 img_select = PhotoImage(file=workspace + w.path_select)
 
-# TODO add button save
-img_save = PhotoImage(file=workspace + w.path_select)
+img_stats = PhotoImage(file=workspace + w.path_stats)
+
+img_save = PhotoImage(file=workspace + w.path_save)
 
 bshow = Button(f, image=img_show, command=(lambda k=img_quit: wt.show_table(k, dh.get_dict_from_db(dh.db_path))))
 bshow.pack()
-canvas.create_window((20, 230), anchor="nw", window=bshow)
+canvas.create_window((w.X_MARG, w.Y_1), anchor="nw", window=bshow)
 
 badd = Button(f, image=img_add,
               command=(lambda t=w.add_info, n=w.add, f=w.fields, s=img_sumbit: wt.create_win(t, f, n, s)))
 badd.pack()
-canvas.create_window((20, 280), anchor="nw", window=badd)
+canvas.create_window((w.X_MARG, w.Y_2), anchor="nw", window=badd)
 
 bchange = Button(f, image=img_change,
                  command=(lambda t=w.change_info, f=w.fields2, n=w.change, s=img_sumbit: wt.create_win(t, f, n, s)))
 bchange.pack()
-canvas.create_window((20, 330), anchor="nw", window=bchange)
+canvas.create_window((w.X_MARG, w.Y_3), anchor="nw", window=bchange)
 
 bdel = Button(f, image=img_del, command=(lambda s=img_sumbit: wt.del_win(s)))
 bdel.pack()
-canvas.create_window((20, 380), anchor="nw", window=bdel)
+canvas.create_window((w.X_MARG, w.Y_4), anchor="nw", window=bdel)
 
 bform = Button(f, image=img_format, command=(lambda k=img_ok: wt.format_db(k)))
 bform.pack()
-canvas.create_window((20, 430), anchor="nw", window=bform)
+canvas.create_window((w.X_MARG, w.Y_5), anchor="nw", window=bform)
 
 bselect = Button(f, image=img_select, command=(lambda s=img_sumbit, q=img_quit: wt.select_options(s, q)))
 bselect.pack()
-canvas.create_window((20, 480), anchor="nw", window=bselect)
+canvas.create_window((w.X_MARG, w.Y_6), anchor="nw", window=bselect)
 
-# Выборка теперь работает, починил. Но надо куда нить добавить то чтоб статистика в файл выводилась
-# если что , то уже функция такая написана , просто надо кнопку добавить и на нее повесить эту функцию
-bstats = Button(f, image=img_select, command=(lambda s=img_save, q=img_quit: wt.stats_win(s, q)))
+bstats = Button(f, image=img_stats, command=(lambda s=img_save, s1=img_sumbit, q=img_quit: wt.stats_win(s,s1, q)))
 bstats.pack()
-canvas.create_window((20, 530), anchor="nw", window=bstats)
-
-# Пример, чтоб показать, как удобно передавать в show_table словарь, который нужно отобразить
-# вот тут, например, сделал сортировку по имени
-bstats = Button(f, image=img_select, command=(lambda k=img_quit:
-                                              wt.show_table(k, dh.from_ls_dict_to_dict(
-                                                  dh.sort(dh.fields[0],
-                                                          dh.from_dict_to_ls(dh.get_dict_from_db(dh.db_path)),
-                                                          False)))))
-bstats.pack()
-canvas.create_window((20, 20), anchor="nw", window=bstats)
-
-# а тут поиск 'Америка' в habitat
-bstats = Button(f, image=img_select, command=(lambda k=img_quit:
-                                              wt.show_table(k, dh.from_ls_dict_to_dict(
-                                                  dh.search('Америка', [dh.fields[4]], dh.db_path)))))
-bstats.pack()
-canvas.create_window((20, 70), anchor="nw", window=bstats)
+canvas.create_window((w.X_MARG, w.Y_7), anchor="nw", window=bstats)
 
 root.minsize(width=w.WIDTH, height=w.HEIGHT)
 root.maxsize(width=w.WIDTH, height=w.HEIGHT)
+
+a=Entry()
+print(a.__class__)
 
 root.mainloop()

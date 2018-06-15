@@ -11,7 +11,8 @@ import os
 def clear_db():
     """
         Сбрасывает базу (db_path) данных к первоначальному виду
-        Параметры: нет
+        Параметры: -
+        Возвращаемое значение: -
         Автор: Духнай Екатерина
     """
     try:
@@ -27,6 +28,7 @@ def edit_fields(id, new_values, db_path):
     """
         Заменяет данные в бд(путь db_path) у элемнта(номер id) на новые данные
         Параметры: str id, dict new_values, str db_path
+        Возвращаемое значение: -
         Автор: Магомедов Шамиль
     """
     db = sh.open(db_path)
@@ -41,11 +43,11 @@ def del_cat(id, db_path):
     """
         Удаляет кота из базы данных(db_path) по id
         Параметры: str id, str db_path
+        Возвращаемое значение: -
         Автор: Магомедов Шамиль
     """
     db = sh.open(db_path)
     del db[id]
-    # db[dh.last_id_field] = int(db[dh.last_id_field]) - 1
     db.close()
 
 
@@ -53,6 +55,7 @@ def add_cat(cat, db_path):
     """
         Добавляет кота(cat) в базу данных(db_path)
         Параметры: dict cat, str db_path
+        Возвращаемое значение: -
         Автор: Духнай Екатерина
     """
     db = sh.open(db_path)

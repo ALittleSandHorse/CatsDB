@@ -40,6 +40,7 @@ cats = [["Лесная кошка", "Felis", 7, "Серо-коричневый",
 		["Мраморная кошка", "Pardofelis", 3, "Коричневый", "Азия"]]
 
 fields = ['name', 'genus', 'weight', 'colour', 'habitat']
+fields_wo_weight = ['name', 'genus', 'colour', 'habitat']
 stats_fields = ['Средний вес', 'Дисперсия', 'Количество']
 last_id_field = 'last_id'
 
@@ -54,6 +55,7 @@ def create_db_from_dict(cats, db_name):
 	"""
 		Создает БД (db_name) из словаря (cats)
 		Параметры: dict cats, str db_name
+		Возвращаемое значение: -
 		Автор: Магомедов Шамиль
 	"""
 	db = sh.open(data_folder + db_name)
@@ -68,8 +70,9 @@ def create_db_from_dict(cats, db_name):
 
 def from_txt_to_db(file_path, db_name):
 	"""
-		Записыввает котов из файла (file_path) в файл базы данных с именем db_name
+		Записывает котов из файла (file_path) в файл базы данных с именем db_name
 		Параметры: str file_path, str db_name
+		Возвращаемое значение: -
 		Автор: Духнай Екатерина
 	"""
 	file = open(file_path, 'r')
@@ -86,6 +89,7 @@ def from_ls_ls_to_dict(cats_list):
 	"""
 		Преобразовывает список списков (котов) в словарь котов
 		Параметры: list cats_list
+		Возвращаемое значение: dict cats_dict
 		Автор: Магомедов Шамиль
 	"""
 	cats_dict = {}
@@ -98,6 +102,7 @@ def from_ls_dict_to_dict(cats_list):
 	"""
 		Преобразовывает список словарей (котов) в словарь котов
 		Параметры: list cats_list
+		Возвращаемое значение: dict cats
 		Автор: Магомедов Шамиль
 	"""
 	cats = {}
@@ -110,8 +115,9 @@ def from_ls_dict_to_dict(cats_list):
 
 def from_dict_to_ls(cats_dic):
 	"""
-			Преобразовывает список словарей (котов) в словарь котов
+			Преобразовывает словарь словарей (котов) в список котов
 			Параметры: dict cats_list
+			Возвращаемое значение: list cats
 			Автор: Магомедов Шамиль
 	"""
 	cats = []
@@ -123,8 +129,9 @@ def from_dict_to_ls(cats_dic):
 
 def print_dict_to_txt(file_name, cats_dict):
 	"""
-		Записыввает словарь котов в файл [file_name].txt
+		Записывает словарь котов в файл [file_name].txt
 		Параметры: str file_name, dict cats_dict
+		Возвращаемое значение: -
 		Автор: Духнай Екатерина
 	"""
 	file = open(output_folder + file_name + '.txt', 'w')
@@ -138,8 +145,9 @@ def print_dict_to_txt(file_name, cats_dict):
 
 def print_dict(cats_dict):
 	"""
-		Выводит в консоль словарь котов в правильном виде
+		Выводит в консоль словарь котов в форматированном виде
 		Параметры: dict cats_dict
+		Возвращаемое значение: -
 		Автор: Магомедов Шамиль
 	"""
 	for index in cats_dict:
@@ -153,6 +161,7 @@ def print_all_db(db_path):
 	"""
 		Выводит в консоль базу данных из db_path
 		Параметры: str db_path
+		Возвращаемое значение: -
 		Автор: Духнай Екатерина
 	"""
 	database = sh.open(db_path)
@@ -170,7 +179,7 @@ def search(request, fields, db_path):
 	"""
 		Находит все совпадения запроса(request) в базе данных(db_path) в полях(fields)
 		Параметры: str request, list fields, str db_path
-		Возвращает: список совпадений (list)
+		Возвращаемое значение: список совпадений (list) matches
 		Автор: Магомедов Шамиль
 	"""
 	db = sh.open(db_path)
@@ -189,14 +198,13 @@ def get_cats_by_weight(w1, w2, db_path):
 	"""
 		Возвращает список котов удовлетворяющих условию: вес
 		Параметры: int w1, int w2, str db_path
-		Возвращает: список котов (list)
+		Возвращаемое значение: список котов (list) matches
 		Автор: Магомедов Шамиль
 	"""
 	db = sh.open(db_path)
 	matches = []
 	for item in db:
 		if item != last_id_field:
-			# fields[2] - название поля, которое хранит вес кота
 			weight = db[item][fields[2]]
 			if str(weight).isdigit() and w1 <= weight <= w2:
 				matches.append(db[item])
@@ -208,7 +216,7 @@ def get_count(db_path):
 	"""
 		Получает из базы данных (db_path) количество котов
 		Параметры: str db_path
-		Возвращает: количество котов(int)
+		Возвращаемое значение: количество котов(int) count
 		Автор: Духнай Екатерина
 	"""
 	db = sh.open(db_path)
@@ -221,7 +229,7 @@ def get_dict_from_db(db_path):
 	"""
 		Получает из базы данных (db_path) словарь котов
 		Параметры: str db_path
-		Возвращает: словарь котов(list)
+		Возвращаемое значение: словарь котов(list) dict
 		Автор: Духнай Екатерина
 	"""
 	dict = {}
@@ -236,7 +244,7 @@ def get_dispersion(db_path):
 	"""
 		Вычисляет дисперсию массы кота
 		Параметры: str db_path
-		Возвращает: дисперсию веса кота (float)
+		Возвращаемое значение: дисперсия веса кота (float) disp
 		Автор: Духнай Екатерина
 	"""
 	db = sh.open(db_path)
@@ -260,7 +268,7 @@ def get_average(db_path):
 	"""
 		Вычисляет средний вес котов
 		Параметры: str db_path
-		Возвращает: средний вес котов (float)
+		Возвращаемое значение: средний вес котов (float) average
 		Автор: Магомедов Шамиль
 	"""
 	average = 0
@@ -282,7 +290,7 @@ def get_statistics(db_path):
 		Создает статистику из дисперсии, среднего значения
 		и общего количества котов
 		Параметры: str db_path
-		Возвращает: словарь статистики (dict)
+		Возвращаемое значение: словарь статистики (dict) stats
 		Автор: Духнай Екатерина
 	"""
 	stats = {}
@@ -296,6 +304,7 @@ def print_stats_to_txt(file_name, stats):
 	"""
 		Записывает словарь статистики в файл [file_name].txt
 		Параметры: str file_name, dict stats
+		Возвращаемое значение: -
 		Автор: Магомедов Шамиль
 	"""
 	file = open(output_folder + file_name + '.txt', 'w')
@@ -308,24 +317,7 @@ def sort(param, cats_list, reverse):
 	"""
 		Сортирует котов (cats_list) по определенному параметру (param)
 		Параметры: str param, list cats_list, bool reverse
-		Возвращает: отсортированный список котов(list)
+		Возвращаемое значение: отсортированный список котов(list)
 		Автор: Магомедов Шамиль
 	"""
 	return sorted(cats_list, key=lambda cat: cat[param], reverse=reverse)
-
-
-# create_db_from_dict(from_ls_to_dict(cats), 'data')
-# print_dict_to_txt('out', from_ls_to_dict(cats))
-# from_txt_to_db('../Output/out.txt', 'data')
-# create_db_from_dict(from_ls_to_dict(cats), 'data')
-# print_all_db(db_path)
-# new_ls = sort(fields[1], get_cats_by_weight(4, 6, db_path), False)
-
-# print(search('Африка', [fields[4], fields[3]], db_path))
-# print(get_cats_by_weight(10, 100, db_path))
-# print(get_statistics(db_path))
-# print_stats_to_txt('stats', get_statistics(db_path))
-
-# print(from_ls_dict_to_dict(search('Африка', [fields[4], fields[3]], db_path)))
-
-print(sort(fields[0], from_dict_to_ls(get_dict_from_db(db_path)), False))
